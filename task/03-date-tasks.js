@@ -84,6 +84,7 @@ function isLeapYear(date) {
  */
 function timeSpanToString(startDate, endDate) {
    throw new Error('Not implemented');
+   // return endDate.getTime().toTimeString() - startDate.getTime().toTimeString();
 }
 
 
