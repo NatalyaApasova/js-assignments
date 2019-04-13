@@ -32,6 +32,9 @@
  */
 function getRegexForGuid() {
    throw new Error('Not implemented');
+   // let reg = new RegExp;
+   // return reg.match(/[0-9A-Fa-f]/g);
+  
 }
 
 

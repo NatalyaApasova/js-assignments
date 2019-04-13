@@ -30,7 +30,10 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    if (num % 3 == 0 && num % 5 == 0) {return 'FizzBuzz';}
+    else if (num % 3 == 0) {return 'Fizz';}
+    else if (num % 5 == 0) {return 'Buzz';}
+    else {return num;}
 }
 
 
@@ -46,7 +49,7 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    return (n !== 1) ? n * getFactorial(n - 1) : 1;
 }
 
 
@@ -63,7 +66,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let sum = n1;
+    for (let i = n1+1; i <= n2; i++) {
+        sum += i;
+    }
+    return sum;
 }
 
 
@@ -82,7 +89,18 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    if (a == 0 || b == 0 || c == 0) {
+        return false;
+    }
+    else if (a == b && b == c && c == a) {
+        return true;
+    }
+    else if (Math.pow(a,2) == Math.pow(b,2) + Math.pow(c,2) ||
+        Math.pow(b,2) == Math.pow(a,2) + Math.pow(c,2)||
+        Math.pow(c,2) == Math.pow(a,2) + Math.pow(b,2)) {
+        return true;
+    }
+    return false;
 }
 
 
@@ -104,7 +122,7 @@ function isTriangle(a,b,c) {
  *        width=20    
  * 
  * NOTE: Please use canvas coordinate space (https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#The_grid),
- * it differs from Cartesian coordinate system.
+ * it differs from Cartesian coordinate system. 
  * 
  * @param {object} rect1
  * @param {object} rect2
@@ -209,7 +227,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split('').reverse().join('');
 }
 
 
@@ -226,7 +244,8 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    let n = num +'';
+    return +n.split('').reverse().join('');
 }
 
 
@@ -251,7 +270,13 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    ccn = ccn + '';
+    return ccn.split('')
+        .reverse()
+        .map( (x) => parseInt(x) )
+        .map( (x,idx) => idx % 2 ? x * 2 : x )
+        .map( (x) => x > 9 ? (x % 10) + 1 : x )
+        .reduce( (accum, x) => accum += x ) % 10 === 0;
 }
 
 
@@ -270,7 +295,7 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+      return (num - 1) % 9 + 1;
 }
 
 
@@ -296,7 +321,24 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
+    let stack = [];
+    let open = ['(','[','{','<'];
+    let close = [')',']','}','>'];
+
+    for (let i = 0; i < str.length; i++) {
+        let last = stack[stack.length - 1];
+        if (open.indexOf(last) !== close.indexOf(str[i]) || stack.length === 0) {
+            stack.push(str[i]);
+        } else if (open.indexOf(last) === close.indexOf(str[i]) && close.indexOf(str[i]) !== -1 ) {
+            stack.pop();
+        } else {
+            return false;
+        }
+    }
+    if (stack.length) {
+        return false;
+    }
+    return true;
 }
 
 
