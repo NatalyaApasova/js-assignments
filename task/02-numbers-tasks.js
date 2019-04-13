@@ -227,9 +227,6 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
     throw new Error('Not implemented');
-    // if (value == null) {return def;}
-    // let val = value.parseInt();
-    // typeof val == 'number' ? value : def; 
 }
 
 module.exports = {

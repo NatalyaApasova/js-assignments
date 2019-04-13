@@ -497,7 +497,15 @@ return arr.sort((a, b) => {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   let array = new Array(n);
+   array.fill(0);
+   return array.map((elem, index) => {
+      let arr = new Array(n);
+      arr.fill(0);
+      arr[index] = 1;
+      elem = arr;
+      return elem;
+    });
 }
 
 /**
@@ -574,7 +582,19 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+  let keys = array.map(keySelector);
+  let values = array.map(valueSelector);
+  let map = new Map();
+  keys.filter((elem, index) => {
+    if (!map.has(elem)) {
+        map.set(elem, [values[index]]);
+    } else {
+        let value = map.get(elem);
+        value.push(values[index]);
+        map.set(elem, value);
+     }
+  });
+  return map;
 }
 
 
@@ -634,7 +654,16 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    let array;
+    let lenght = arr.length;
+    let tail = arr.slice(-(lenght / 2));
+    let head = arr.slice(0, (lenght / 2));
+    if (lenght % 2 != 0 && lenght > 1) {
+        array = [...tail, arr[Math.floor(lenght / 2)], ...head];
+        return array;
+    }
+    array = [...tail, ...head];
+    return array;
 }
 
 
