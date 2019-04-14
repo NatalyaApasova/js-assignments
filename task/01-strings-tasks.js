@@ -243,9 +243,9 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
-    // return value ? typeof value.toString() === 'string' && value.toString() : false;
-
+    // throw new Error('Not implemented');
+    if (value) return Boolean(String(value));
+    return false;
 }
 
 
