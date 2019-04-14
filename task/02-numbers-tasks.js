@@ -22,7 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    return width*height;
+    return width * height;
 }
 
 
@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    return 2*Math.PI*radius;
+    return 2 * Math.PI * radius;
 }
 
 /**
@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return value1/2 + value2/2;
+    return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -128,10 +128,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
-    // let val = value+"";
-    // val = val.reverse().charAt(0);
-    // return Number(val);
+   return + value % 10;
 }
 
 
@@ -164,8 +161,11 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    throw new Error('Not implemented');
-    let paralDiagonal = a+b+c;
+    // throw new Error('Not implemented');
+    let d;
+    let dPow = Math.pow(d,2);
+    dPow = Math.pow(a,2)+Math.pow(b,2)+Math.pow(c,2);
+    return d = Math.sqrt(dPow);
 }
 
 /**
@@ -186,7 +186,10 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    throw new Error('Not implemented');
+    if (pow == 0) return num;
+    if (pow == 1) return Math.round(num / 10) * 10;
+    if (pow == 2) return Math.round(num / 100) * 100;
+    if (pow == 3) return Math.round(num / 1000) * 1000;
 }
 
 /**
@@ -227,7 +230,6 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    // throw new Error('Not implemented');
     if (Number(value)) return parseInt(value);
     return def;
 }
